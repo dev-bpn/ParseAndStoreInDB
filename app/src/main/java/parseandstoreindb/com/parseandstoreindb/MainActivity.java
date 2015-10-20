@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+// URL: https://forex.riberasolutions.com/api/v1/agents
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
