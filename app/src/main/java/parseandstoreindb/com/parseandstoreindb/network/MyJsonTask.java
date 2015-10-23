@@ -13,6 +13,7 @@ import parseandstoreindb.com.parseandstoreindb.log.MyLog;
  */
 public class MyJsonTask {
 
+
     public static void parseJsonData(String stringResponse){
         try {
             JSONObject jsonObject = new JSONObject(stringResponse);
@@ -22,19 +23,33 @@ public class MyJsonTask {
                 jsonObject1 = jsonArray.getJSONObject(i);
                 switch (i){
                     case 0:
-                        long returnVal = MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_1, jsonObject1.toString());
+                        MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_1, jsonObject1.toString());
                         break;
                     case 1:
-                        long returnVal1 = MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_2, jsonObject1.toString());
+                        MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_2, jsonObject1.toString());
+                        break;
+                    case 2:
+                        MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_3 , jsonObject1.toString());
+                        break;
+                    case 3:
+                        MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_4 , jsonObject1.toString());
+                        break;
+                    case 4:
+                        MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_5 , jsonObject1.toString());
+                        break;
+                    case 5:
+                        MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_6 , jsonObject1.toString());
+                        break;
+                    case 6:
+                        MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_7 , jsonObject1.toString());
                         break;
                 }
             }
-
-            MyLog.showLog(jsonObject1.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+
 
     private static void getDays(JSONObject jsonObject){
 

@@ -43,7 +43,7 @@ public class MyAppUtils {
             });
             requestQueue.add(stringRequest);
         }else{
-            MyToast.showToast(context, "No internat connection");
+            MyToast.showToast(context, "No internet connection");
         }
     }
 
