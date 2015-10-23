@@ -12,10 +12,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 import parseandstoreindb.com.parseandstoreindb.log.MyToast;
-
-// URL: https://forex.riberasolutions.com/api/v1/agents
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 MyLog.showLog(responseString);
                 if(!responseString.isEmpty()){
                     MyToast.showToast(getApplicationContext() , responseString);
+                    parseJsonData(responseString);
                 }
             }
         }, new Response.ErrorListener() {
@@ -45,6 +48,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(stringRequest);
+    }
+
+    private void parseJsonData(String stringResponse){
+        try {
+            JSONObject jsonObject = new JSONObject(stringResponse);
+            JSONArray jsonArray = jsonObject.getJSONArray("results");
+            JSONObject jsonObject1 = jsonArray.getJSONObject(1);
+            MyLog.showLog(jsonObject1.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
