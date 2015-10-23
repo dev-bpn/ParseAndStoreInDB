@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONException;
+
 import parseandstoreindb.com.parseandstoreindb.database.DataFrom_DB;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
 import parseandstoreindb.com.parseandstoreindb.utils.MyAppUtils;
@@ -19,7 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
         MyAppUtils.performVolleyRequest(this, MyAppUtils.URL);
         adapter = new MyDatabaseAdapter(this);
-        DataFrom_DB.getDBData();
+
+        try {
+            DataFrom_DB.getDBData();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 

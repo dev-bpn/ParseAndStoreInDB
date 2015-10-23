@@ -6,7 +6,6 @@ import org.json.JSONObject;
 
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter.MySQLiteHelper;
-import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 
 /**
  * Created by Dell on 10/23/2015.
@@ -50,22 +49,4 @@ public class MyJsonTask {
         }
     }
 
-
-    private static void getDays(JSONObject jsonObject){
-
-        try {
-            String sunday = jsonObject.getString("sunday");
-            String monday = jsonObject.getString("monday");
-            String tuesday = jsonObject.getString("tuesday");
-            String wednesday = jsonObject.getString("wednesday");
-            String thursday = jsonObject.getString("thursday");
-            String friday = jsonObject.getString("friday");
-            String saturday = jsonObject.getString("saturday");
-
-            MyLog.showLog("");
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 }
