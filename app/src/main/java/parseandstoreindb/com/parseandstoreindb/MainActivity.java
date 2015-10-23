@@ -5,16 +5,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
 import parseandstoreindb.com.parseandstoreindb.utils.MyAppUtils;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MyDatabaseAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         MyAppUtils.performVolleyRequest(this, MyAppUtils.URL);
+        adapter = new MyDatabaseAdapter(this);
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
