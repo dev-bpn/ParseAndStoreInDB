@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void performVolleyRequest(){
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        String url = "https://api.import.io/store/data/468092da-b39e-4741-8744-108cb34b91c9/_query?input/webpage/url=http%3A%2F%2Fbattigayo.com%2Fschedule&_user=9233c692-537f-4594-b799-fb2205a1074e&_apikey=9233c692537f4594b799fb2205a1074eb39e630c37c0914ed01fcb84dd0748a4ccc3d573dd764382db3e8c0568e20bd5e65e2670b26bdcedeb163b073146057551faa3cfd012eede3a59028fe3ede24e";
+        String url = "https://api.import.io/store/data/10332935-d928-4f84-a4e4-ad1c449fc95b/_query?input/webpage/url=http%3A%2F%2Fbattigayo.com%2Fschedule&_user=9233c692-537f-4594-b799-fb2205a1074e&_apikey=9233c692537f4594b799fb2205a1074eb39e630c37c0914ed01fcb84dd0748a4ccc3d573dd764382db3e8c0568e20bd5e65e2670b26bdcedeb163b073146057551faa3cfd012eede3a59028fe3ede24e";
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
@@ -55,7 +55,26 @@ public class MainActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(stringResponse);
             JSONArray jsonArray = jsonObject.getJSONArray("results");
             JSONObject jsonObject1 = jsonArray.getJSONObject(1);
+            getDays(jsonObject1);
             MyLog.showLog(jsonObject1.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getDays(JSONObject jsonObject){
+
+        try {
+            String sunday = jsonObject.getString("sunday");
+            String monday = jsonObject.getString("monday");
+            String tuesday = jsonObject.getString("tuesday");
+            String wednesday = jsonObject.getString("wednesday");
+            String thursday = jsonObject.getString("thursday");
+            String friday = jsonObject.getString("friday");
+            String saturday = jsonObject.getString("saturday");
+
+            MyLog.showLog("");
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
