@@ -54,8 +54,11 @@ public class MainActivity extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject(stringResponse);
             JSONArray jsonArray = jsonObject.getJSONArray("results");
-            JSONObject jsonObject1 = jsonArray.getJSONObject(1);
-            getDays(jsonObject1);
+            JSONObject jsonObject1 = null;
+            for (int i = 0 ; i < jsonArray.length() ; i++){
+                jsonObject1 = jsonArray.getJSONObject(i);
+                getDays(jsonObject1);
+            }
             MyLog.showLog(jsonObject1.toString());
         } catch (JSONException e) {
             e.printStackTrace();
