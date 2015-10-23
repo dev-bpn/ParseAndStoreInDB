@@ -2,6 +2,7 @@ package parseandstoreindb.com.parseandstoreindb.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -26,6 +27,17 @@ public class MyDatabaseAdapter {
         contentValues.put(groupNo , strValue);
         long id = database.insert(MySQLiteHelper.TABLE_NAME , null , contentValues);
         return id;
+    }
+
+    public static String getColumnData(String[] columnName , int position){
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_NAME , columnName , null , null , null , null , null);
+        StringBuffer stringBuffer = new StringBuffer();
+        while (cursor.moveToNext()){
+            String data  = cursor.getString(position);
+            stringBuffer.append(data);
+        }
+        return stringBuffer.toString();
+
     }
 
     public class MySQLiteHelper extends SQLiteOpenHelper {
