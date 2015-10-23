@@ -1,5 +1,6 @@
 package parseandstoreindb.com.parseandstoreindb.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,10 +14,18 @@ import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 public class MyDatabaseAdapter {
 
     private MySQLiteHelper helper;
-    private SQLiteDatabase database;
+    private static SQLiteDatabase database;
+
     public MyDatabaseAdapter(Context context){
         helper = new MySQLiteHelper(context);
         database = helper.getWritableDatabase();
+    }
+
+    public static long insertData(String groupNo , String strValue){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(groupNo , strValue);
+        long id = database.insert(MySQLiteHelper.TABLE_NAME , null , contentValues);
+        return id;
     }
 
     public class MySQLiteHelper extends SQLiteOpenHelper {
@@ -38,7 +47,7 @@ public class MyDatabaseAdapter {
 
 
         public MySQLiteHelper(Context context) {
-            super(context , DATABASE_NAME , null , DATABASE_VERSION);
+            super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
 
         @Override

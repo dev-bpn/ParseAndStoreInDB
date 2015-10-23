@@ -4,6 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
+import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter.MySQLiteHelper;
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 
 /**
@@ -18,8 +20,16 @@ public class MyJsonTask {
             JSONObject jsonObject1 = null;
             for (int i = 0 ; i < jsonArray.length() ; i++){
                 jsonObject1 = jsonArray.getJSONObject(i);
-                getDays(jsonObject1);
+                switch (i){
+                    case 0:
+                        long returnVal = MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_1, jsonObject1.toString());
+                        break;
+                    case 1:
+                        long returnVal1 = MyDatabaseAdapter.insertData(MySQLiteHelper.GROUP_2, jsonObject1.toString());
+                        break;
+                }
             }
+
             MyLog.showLog(jsonObject1.toString());
         } catch (JSONException e) {
             e.printStackTrace();
