@@ -18,7 +18,7 @@ public class MyDatabase {
     public static ArrayList<String> group_6 = new ArrayList<>();
     public static ArrayList<String> group_7 = new ArrayList<>();
 
-    public static void getDBData() throws JSONException {
+    public static void getDBData() {
         String[] columnData = {
                 MySQLiteHelper.GROUP_1, MySQLiteHelper.GROUP_2,
                 MySQLiteHelper.GROUP_3, MySQLiteHelper.GROUP_4,

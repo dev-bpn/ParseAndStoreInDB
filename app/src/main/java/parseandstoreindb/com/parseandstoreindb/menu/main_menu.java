@@ -5,6 +5,7 @@ import android.content.Context;
 import parseandstoreindb.com.parseandstoreindb.R;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
+import parseandstoreindb.com.parseandstoreindb.network.MyJsonTask;
 import parseandstoreindb.com.parseandstoreindb.utils.MyAppUtils;
 
 /**
@@ -19,7 +20,7 @@ public class Main_menu {
             if(rowAffected > 0)
             {
                 MyLog.showLog("DataDeleted " + rowAffected);
-                MyAppUtils.performVolleyRequest(context, MyAppUtils.URL);
+                MyJsonTask.performVolleyRequest(context, MyAppUtils.URL);
             }else{
                 MyLog.showLog("No DataDeleted "+ rowAffected);
             }
