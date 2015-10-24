@@ -26,7 +26,7 @@ public class MyDatabaseAdapter {
     }
 
     public static String getColumnData(String[] columnName , int position){
-        Cursor cursor = database.query(MySQLiteHelper.TABLE_NAME , columnName , null , null , null , null , null);
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_NAME, columnName, null, null, null, null, null);
         StringBuffer stringBuffer = new StringBuffer();
         while (cursor.moveToNext()){
             String data  = cursor.getString(position);
@@ -34,6 +34,11 @@ public class MyDatabaseAdapter {
         }
         return stringBuffer.toString();
 
+    }
+
+    public static int deleteColumnData(){
+        int rowAffected = database.delete(MySQLiteHelper.TABLE_NAME, null, null);
+        return rowAffected;
     }
 
     public static boolean checkIfTableExists(){

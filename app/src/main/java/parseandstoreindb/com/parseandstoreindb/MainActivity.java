@@ -60,7 +60,14 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
 
-            
+            int rowAffected = MyDatabaseAdapter.deleteColumnData();
+            if(rowAffected > 0)
+            {
+                MyLog.showLog("DataDeleted "+ rowAffected);
+                MyAppUtils.performVolleyRequest(this, MyAppUtils.URL);
+            }else{
+                MyLog.showLog("No DataDeleted "+ rowAffected);
+            }
 
         }
 
