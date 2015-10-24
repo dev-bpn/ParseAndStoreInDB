@@ -10,6 +10,8 @@ import parseandstoreindb.com.parseandstoreindb.log.MyLog;
  */
 public class MyDatabase{
 
+    public static ArrayResponse response = null;
+
     public static ArrayList<String> group_1 = new ArrayList<>();
     public static ArrayList<String> group_2 = new ArrayList<>();
     public static ArrayList<String> group_3 = new ArrayList<>();
@@ -69,7 +71,7 @@ public class MyDatabase{
                     break;
             }
         }
-
+        response.processFinish(group_1);
     }
 
 
