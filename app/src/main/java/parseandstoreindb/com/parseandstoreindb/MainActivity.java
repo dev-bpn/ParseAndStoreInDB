@@ -6,9 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import parseandstoreindb.com.parseandstoreindb.database.ArrayResponse;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabase;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
@@ -17,17 +17,18 @@ import parseandstoreindb.com.parseandstoreindb.menu.Main_menu;
 import parseandstoreindb.com.parseandstoreindb.network.MyJsonTask;
 import parseandstoreindb.com.parseandstoreindb.utils.MyAppUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ArrayResponse{
 
     private MyDatabaseAdapter adapter;
     public static ListView listView;
-    public static ListAdapter listAdapter;
+    MyJsonTask myJsonTask = new MyJsonTask();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = (ListView) findViewById(R.id.listView);
-
+        myJsonTask.response = this;
         adapter = new MyDatabaseAdapter(this);
         showData();
 
@@ -45,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         }else{
             MyLog.showLog("File don't exists");
             MyJsonTask.performVolleyRequest(this, MyAppUtils.URL);
-
         }
     }
 
@@ -64,7 +64,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item)
     {
         int id = item.getItemId();
-        Main_menu.getMenu(id , this);
+        Main_menu.getMenu(id, this);
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void processFinish(String results) {
+        String res = results ;
+        MyLog.showLog(res);
     }
 }

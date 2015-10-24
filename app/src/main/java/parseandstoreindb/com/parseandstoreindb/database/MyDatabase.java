@@ -8,7 +8,7 @@ import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 /**
  * Created by Dell on 10/23/2015.
  */
-public class MyDatabase {
+public class MyDatabase{
 
     public static ArrayList<String> group_1 = new ArrayList<>();
     public static ArrayList<String> group_2 = new ArrayList<>();
@@ -99,5 +99,4 @@ public class MyDatabase {
         }
         return arrayList;
     }
-
 }

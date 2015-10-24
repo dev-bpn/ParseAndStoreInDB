@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import parseandstoreindb.com.parseandstoreindb.database.ArrayResponse;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabase;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
 import parseandstoreindb.com.parseandstoreindb.database.MySQLiteHelper;
@@ -27,6 +28,7 @@ import parseandstoreindb.com.parseandstoreindb.utils.MyAppUtils;
 public class MyJsonTask{
 
     private static ProgressDialog progressDialog;
+    public static ArrayResponse response = null;
 
     public static void performVolleyRequest(final Context context , String url) {
         if (MyAppUtils.isNetworkConnected(context)) {
@@ -39,8 +41,9 @@ public class MyJsonTask{
                 public void onResponse(String responseString) {
                     MyLog.showLog(responseString);
                     if(!responseString.isEmpty()){
-//                        MyToast.showToast(context, responseString);
+                        MyToast.showToast(context, responseString);
                         MyJsonTask.insertParsedJsonData(responseString);
+                        response.processFinish(responseString);
                         progressDialog.dismiss();
                     }
                 }
