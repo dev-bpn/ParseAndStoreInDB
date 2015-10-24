@@ -7,7 +7,7 @@ import android.view.MenuItem;
 
 import org.json.JSONException;
 
-import parseandstoreindb.com.parseandstoreindb.database.DataFrom_DB;
+import parseandstoreindb.com.parseandstoreindb.database.MyDatabase;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 import parseandstoreindb.com.parseandstoreindb.log.MyToast;
@@ -22,18 +22,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         adapter = new MyDatabaseAdapter(this);
+        showData();
 
+
+
+    }
+
+    private void showData(){
         if(MyDatabaseAdapter.checkIfTableExists()){
             MyLog.showLog("File exists");
             try {
-                DataFrom_DB.getDBData();
-                MyToast.showToast(this, DataFrom_DB.group_1.toString());
-                MyToast.showToast(this , DataFrom_DB.group_2.toString());
-                MyToast.showToast(this , DataFrom_DB.group_3.toString());
-                MyToast.showToast(this , DataFrom_DB.group_4.toString());
-                MyToast.showToast(this , DataFrom_DB.group_5.toString());
-                MyToast.showToast(this , DataFrom_DB.group_6.toString());
-                MyToast.showToast(this , DataFrom_DB.group_7.toString());
+                MyDatabase.getDBData();
+                MyToast.showToast(this, MyDatabase.group_1.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -41,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
             MyLog.showLog("File don't exists");
             MyAppUtils.performVolleyRequest(this, MyAppUtils.URL);
         }
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,8 +58,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_refresh) {
+
+            
+
         }
 
         return super.onOptionsItemSelected(item);

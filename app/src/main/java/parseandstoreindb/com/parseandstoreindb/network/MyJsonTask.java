@@ -5,7 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
-import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter.MySQLiteHelper;
+import parseandstoreindb.com.parseandstoreindb.database.MySQLiteHelper;
 
 /**
  * Created by Dell on 10/23/2015.

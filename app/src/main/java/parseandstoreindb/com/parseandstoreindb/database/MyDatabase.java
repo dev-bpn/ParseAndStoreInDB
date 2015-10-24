@@ -8,7 +8,7 @@ import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 /**
  * Created by Dell on 10/23/2015.
  */
-public class DataFrom_DB {
+public class MyDatabase {
 
     public static ArrayList<String> group_1 = new ArrayList<>();
     public static ArrayList<String> group_2 = new ArrayList<>();
@@ -20,10 +20,10 @@ public class DataFrom_DB {
 
     public static void getDBData() throws JSONException {
         String[] columnData = {
-                MyDatabaseAdapter.MySQLiteHelper.GROUP_1, MyDatabaseAdapter.MySQLiteHelper.GROUP_2,
-                MyDatabaseAdapter.MySQLiteHelper.GROUP_3, MyDatabaseAdapter.MySQLiteHelper.GROUP_4,
-                MyDatabaseAdapter.MySQLiteHelper.GROUP_5, MyDatabaseAdapter.MySQLiteHelper.GROUP_6,
-                MyDatabaseAdapter.MySQLiteHelper.GROUP_6};
+                MySQLiteHelper.GROUP_1, MySQLiteHelper.GROUP_2,
+                MySQLiteHelper.GROUP_3, MySQLiteHelper.GROUP_4,
+                MySQLiteHelper.GROUP_5, MySQLiteHelper.GROUP_6,
+                MySQLiteHelper.GROUP_6};
         for(int i = 0 ; i < columnData.length; i++){
             switch (i){
                 case 0:
