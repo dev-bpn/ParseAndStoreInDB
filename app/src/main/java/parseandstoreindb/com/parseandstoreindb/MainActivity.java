@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import parseandstoreindb.com.parseandstoreindb.database.MyArrayResponse;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabase;
@@ -60,9 +61,19 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse {
     @Override
     public void processFinish(Object results) {
         MyLog.showLog(results.toString());
-        ArrayList<String> arrayList = new ArrayList<>();
-//        convert Object containing arrayObj to array 
-//        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, llll));
+
+        ArrayList myArrayList = (ArrayList) results;
+        String group_1_str = myArrayList.get(0).toString();
+        String group_2_str = myArrayList.get(1).toString();
+        String group_3_str = myArrayList.get(2).toString();
+        String group_4_str = myArrayList.get(3).toString();
+        String group_5_str = myArrayList.get(4).toString();
+        String group_6_str = myArrayList.get(5).toString();
+        String group_7_str = myArrayList.get(6).toString();
+
+        ArrayList<String> group_1 = new ArrayList<String>(Arrays.asList(group_1_str.split(",")));
+
+        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, group_1));
     }
 
 
