@@ -9,6 +9,8 @@ import org.json.JSONException;
 
 import parseandstoreindb.com.parseandstoreindb.database.DataFrom_DB;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
+import parseandstoreindb.com.parseandstoreindb.log.MyLog;
+import parseandstoreindb.com.parseandstoreindb.log.MyToast;
 import parseandstoreindb.com.parseandstoreindb.utils.MyAppUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,14 +21,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MyAppUtils.performVolleyRequest(this, MyAppUtils.URL);
         adapter = new MyDatabaseAdapter(this);
 
-        try {
-            DataFrom_DB.getDBData();
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if(MyDatabaseAdapter.checkIfTableExists()){
+            MyLog.showLog("File exists");
+            try {
+                DataFrom_DB.getDBData();
+                MyToast.showToast(this, DataFrom_DB.group_1.toString());
+                MyToast.showToast(this , DataFrom_DB.group_2.toString());
+                MyToast.showToast(this , DataFrom_DB.group_3.toString());
+                MyToast.showToast(this , DataFrom_DB.group_4.toString());
+                MyToast.showToast(this , DataFrom_DB.group_5.toString());
+                MyToast.showToast(this , DataFrom_DB.group_6.toString());
+                MyToast.showToast(this , DataFrom_DB.group_7.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }else{
+            MyLog.showLog("File don't exists");
+            MyAppUtils.performVolleyRequest(this, MyAppUtils.URL);
         }
+
     }
 
 

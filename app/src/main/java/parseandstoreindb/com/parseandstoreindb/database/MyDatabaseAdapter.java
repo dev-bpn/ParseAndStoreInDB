@@ -40,6 +40,15 @@ public class MyDatabaseAdapter {
 
     }
 
+    public static boolean checkIfTableExists(){
+        String[] columns = {};
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_NAME, columns, null, null, null, null, null, "1");
+        if (cursor.moveToFirst()) {
+            return true; // a row was found
+        }
+        return false; // no row was found
+    }
+
     public class MySQLiteHelper extends SQLiteOpenHelper {
 
         public static final String DATABASE_NAME = "my_database";
