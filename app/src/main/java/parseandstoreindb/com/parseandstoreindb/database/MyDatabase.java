@@ -2,7 +2,10 @@ package parseandstoreindb.com.parseandstoreindb.database;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.List;
+
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 
 /**
@@ -10,7 +13,7 @@ import parseandstoreindb.com.parseandstoreindb.log.MyLog;
  */
 public class MyDatabase{
 
-    public static ArrayResponse response = null;
+    public static MyArrayResponse response = null;
 
     public static ArrayList<String> group_1 = new ArrayList<>();
     public static ArrayList<String> group_2 = new ArrayList<>();
@@ -71,7 +74,15 @@ public class MyDatabase{
                     break;
             }
         }
-        response.processFinish(group_1);
+        List<ArrayList> list = new ArrayList<>();
+        list.add(group_1);
+        list.add(group_2);
+        list.add(group_3);
+        list.add(group_4);
+        list.add(group_5);
+        list.add(group_6);
+        list.add(group_7);
+        response.processFinish(list);
     }
 
 

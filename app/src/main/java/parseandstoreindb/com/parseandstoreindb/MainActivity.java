@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import parseandstoreindb.com.parseandstoreindb.database.ArrayResponse;
+import parseandstoreindb.com.parseandstoreindb.database.MyArrayResponse;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabase;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
@@ -19,7 +19,7 @@ import parseandstoreindb.com.parseandstoreindb.menu.Main_menu;
 import parseandstoreindb.com.parseandstoreindb.network.MyJsonTask;
 import parseandstoreindb.com.parseandstoreindb.utils.MyAppUtils;
 
-public class MainActivity extends AppCompatActivity implements ArrayResponse{
+public class MainActivity extends AppCompatActivity implements MyArrayResponse {
 
     private MyDatabaseAdapter adapter;
     public static ListView listView;
@@ -58,9 +58,11 @@ public class MainActivity extends AppCompatActivity implements ArrayResponse{
     }
 
     @Override
-    public void processFinish(ArrayList results) {
-        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, results));
+    public void processFinish(Object results) {
         MyLog.showLog(results.toString());
+        ArrayList<String> arrayList = new ArrayList<>();
+//        convert Object containing arrayObj to array 
+//        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, llll));
     }
 
 
