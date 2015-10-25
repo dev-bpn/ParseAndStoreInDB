@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -32,8 +31,8 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse {
         listView = (ListView) findViewById(R.id.listView);
 
         MyDatabase.response = this;
-
         adapter = new MyDatabaseAdapter(this);
+
         showData();
 
     }
@@ -51,11 +50,6 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse {
             MyLog.showLog("File don't exists");
             MyJsonTask.performVolleyRequest(this, MyAppUtils.URL);
         }
-    }
-
-
-    public void add(View view){
-        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, MyDatabase.group_7));
     }
 
     @Override
