@@ -1,9 +1,8 @@
 package parseandstoreindb.com.parseandstoreindb.fragments;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
-import android.support.annotation.Nullable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,12 +33,12 @@ public class Fragment_group_2 extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_group_2, container, false);
         listView = (ListView) view.findViewById(R.id.listView2);
+        if(MainActivity.group_2 != null){
+            listView.setAdapter(new ArrayAdapter<String>(getActivity() , android.R.layout.simple_list_item_1 , MainActivity.group_2));
+        }else{
+            listView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, MainActivity.def_group));
+        }
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        listView.setAdapter(new ArrayAdapter<String>(getActivity() , android.R.layout.simple_list_item_1 , MainActivity.group_2));
-    }
 }

@@ -16,14 +16,17 @@ public class Main_menu {
     public static void getMenu(int id , Context context){
         if (id == R.id.action_refresh) {
 
-            int rowAffected = MyDatabaseAdapter.deleteColumnData();
-            if(rowAffected > 0)
-            {
-                MyLog.showLog("DataDeleted " + rowAffected);
-                MyJsonTask.performVolleyRequest(context, MyAppUtils.URL);
+            if(MyDatabaseAdapter.checkIfTableExists()){
+                int rowAffected = MyDatabaseAdapter.deleteColumnData();
+                if(rowAffected > 0)
+                {
+                    MyLog.showLog("DataDeleted " + rowAffected);
+                    MyJsonTask.performVolleyRequest(context, MyAppUtils.URL);
+                }
             }else{
-                MyLog.showLog("No DataDeleted "+ rowAffected);
+                MyJsonTask.performVolleyRequest(context, MyAppUtils.URL);
             }
+
 
         }
     }

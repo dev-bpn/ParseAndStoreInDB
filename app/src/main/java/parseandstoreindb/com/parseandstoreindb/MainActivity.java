@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse{
     public static ArrayList<String> group_5 ;
     public static ArrayList<String> group_6 ;
     public static ArrayList<String> group_7 ;
-
+    public static String[] def_group;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse{
         adapter = new MyDatabaseAdapter(this);
 
         showData();
+
+        def_group = getResources().getStringArray(R.array.default_data);
 
     }
 
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse{
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -108,4 +110,6 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse{
         Main_menu.getMenu(id, this);
         return super.onOptionsItemSelected(item);
     }
+
+
 }
