@@ -4,4 +4,9 @@
     tools:context="parseandstoreindb.com.parseandstoreindb.fragments.Fragment_group_3"
     android:background="#8395ff">
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView3"
+        android:layout_gravity="left|top" />
 </FrameLayout>
