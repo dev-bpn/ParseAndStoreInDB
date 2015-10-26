@@ -103,20 +103,23 @@ public class Total {
 
         String aaa[] = a1.split(":");
         int a = Integer.parseInt(aaa[0]);
+        a = hoursFormat_12(a);
         // ------------
 
         String[] aaa2 = a2.split(":");
         int c = Integer.parseInt(aaa2[0]);
+        c = hoursFormat_12(c);
 
         //----------------------------
 
         String[] mm = b1.split(":");
         int e = Integer.parseInt(mm[0]);
-
+        e = hoursFormat_12(e);
         //---------------
 
         String[] nn = b2.split(":");
         int g = Integer.parseInt(nn[0]);
+        g = hoursFormat_12(g);
 
         if(c < a){
             a2 = a2.concat(" pm ");
@@ -133,5 +136,10 @@ public class Total {
         return a1 + a2 + b1 + b2;
     }
 
-    
+    private static int hoursFormat_12(int value){
+        if(value > 12)
+            value = value - 12;
+        return value;
+    }
+
 }
