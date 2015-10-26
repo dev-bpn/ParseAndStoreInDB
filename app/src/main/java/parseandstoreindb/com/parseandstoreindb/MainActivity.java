@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import parseandstoreindb.com.parseandstoreindb.adapter.MyViewPagerAdapter;
-import parseandstoreindb.com.parseandstoreindb.database.MyArrayResponse;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabase;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
+import parseandstoreindb.com.parseandstoreindb.interfaces.MyArrayResponse;
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 import parseandstoreindb.com.parseandstoreindb.log.MyToast;
 import parseandstoreindb.com.parseandstoreindb.menu.Main_menu;
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager() , 3));
 
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse {
     private void showData(){
         if(MyDatabaseAdapter.checkIfTableExists()){
             MyLog.showLog("File exists");
+            MyDatabase.getDBData();
+            MyToast.showToast(this , group_1.toString());
 
         }else{
             MyLog.showLog("File don't exists");

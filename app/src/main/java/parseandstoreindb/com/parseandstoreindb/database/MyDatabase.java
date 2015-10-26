@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import parseandstoreindb.com.parseandstoreindb.interfaces.MyArrayResponse;
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 
 /**

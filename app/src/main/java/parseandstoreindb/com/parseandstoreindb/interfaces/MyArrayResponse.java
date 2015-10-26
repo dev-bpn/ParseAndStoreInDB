@@ -1,4 +1,4 @@
-package parseandstoreindb.com.parseandstoreindb.database;
+package parseandstoreindb.com.parseandstoreindb.interfaces;
 
 /**
  * Created by Dell on 10/24/2015.
