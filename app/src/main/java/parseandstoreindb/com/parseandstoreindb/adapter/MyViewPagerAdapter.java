@@ -37,4 +37,9 @@ public class MyViewPagerAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return count;
     }
+
+    @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
+    }
 }

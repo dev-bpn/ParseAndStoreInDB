@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse{
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager() , 3));
+        viewPager.getAdapter().notifyDataSetChanged();
 
         MyDatabase.response = this;
         adapter = new MyDatabaseAdapter(this);
@@ -94,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse{
         group_7 = new ArrayList<String>(Arrays.asList(group_7_str.split(",")));
 
         MyToast.showToast(this, group_1.toString());
+
+        viewPager.getAdapter().notifyDataSetChanged();
 
     }
 
