@@ -12,7 +12,7 @@ import parseandstoreindb.com.parseandstoreindb.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_group_3 extends Fragment {
+public class Fragment_group_3 extends android.support.v4.app.Fragment {
 
 
     public Fragment_group_3() {
@@ -28,7 +28,7 @@ public class Fragment_group_3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fraagment_group_3, container, false);
+        return inflater.inflate(R.layout.fragment_group_3, container, false);
     }
 
 

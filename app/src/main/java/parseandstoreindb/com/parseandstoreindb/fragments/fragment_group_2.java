@@ -12,7 +12,7 @@ import parseandstoreindb.com.parseandstoreindb.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_group_2 extends Fragment {
+public class Fragment_group_2 extends android.support.v4.app.Fragment {
 
 
     public Fragment_group_2() {

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import parseandstoreindb.com.parseandstoreindb.adapter.MyViewPagerAdapter;
 import parseandstoreindb.com.parseandstoreindb.database.MyArrayResponse;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabase;
 import parseandstoreindb.com.parseandstoreindb.database.MyDatabaseAdapter;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager() , 3));
 
         MyDatabase.response = this;
         adapter = new MyDatabaseAdapter(this);
@@ -40,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse {
     private void showData(){
         if(MyDatabaseAdapter.checkIfTableExists()){
             MyLog.showLog("File exists");
-            MyToast.showToast(this, "CHECK MAH "+group_1.toString());
 
         }else{
             MyLog.showLog("File don't exists");

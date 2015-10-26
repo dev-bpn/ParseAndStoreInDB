@@ -11,7 +11,7 @@ import parseandstoreindb.com.parseandstoreindb.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_group_1 extends Fragment {
+public class Fragment_group_1 extends android.support.v4.app.Fragment {
 
     public Fragment_group_1() {
         // Required empty public constructor

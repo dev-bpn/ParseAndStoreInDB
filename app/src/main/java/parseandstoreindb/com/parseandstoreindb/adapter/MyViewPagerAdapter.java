@@ -23,16 +23,14 @@ public class MyViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                Fragment_group_1.newInstance();
-                break;
+                return Fragment_group_1.newInstance();
             case 1:
-                Fragment_group_2.newInstance();
-                break;
+                return Fragment_group_2.newInstance();
             case 2:
-                Fragment_group_3.newInstance();
-                break;
+                return Fragment_group_3.newInstance();
+            default:
+                return null;
         }
-        return null;
     }
 
     @Override
