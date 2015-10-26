@@ -1,6 +1,7 @@
 package parseandstoreindb.com.parseandstoreindb;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,12 +20,14 @@ import parseandstoreindb.com.parseandstoreindb.utils.MyAppUtils;
 
 public class MainActivity extends AppCompatActivity implements MyArrayResponse {
 
+    private ViewPager viewPager;
     private MyDatabaseAdapter adapter;
     public static ArrayList<String> group_1 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         MyDatabase.response = this;
         adapter = new MyDatabaseAdapter(this);
