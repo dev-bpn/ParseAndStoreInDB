@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +18,7 @@ import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 import parseandstoreindb.com.parseandstoreindb.log.MyToast;
 import parseandstoreindb.com.parseandstoreindb.menu.Main_menu;
 import parseandstoreindb.com.parseandstoreindb.network.MyJsonTask;
+import parseandstoreindb.com.parseandstoreindb.operations.Total;
 import parseandstoreindb.com.parseandstoreindb.utils.MyAppUtils;
 
 public class MainActivity extends AppCompatActivity implements MyArrayResponse{
@@ -62,6 +64,13 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse{
             MyLog.showLog("File don't exists");
             MyJsonTask.performVolleyRequest(this, MyAppUtils.URL);
         }
+    }
+
+    public void totalTime(View view){
+
+        String str = group_1.get(0);
+        int totalTime = Total.getTotal(str);
+
     }
 
     @Override

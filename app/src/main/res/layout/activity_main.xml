@@ -9,7 +9,17 @@
          android:id="@+id/viewPager"
          android:layout_width="match_parent"
          android:layout_height="match_parent"
-        />
+        android:layout_above="@+id/button" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total time / First"
+        android:onClick="totalTime"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

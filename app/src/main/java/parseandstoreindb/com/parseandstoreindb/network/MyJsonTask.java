@@ -39,8 +39,7 @@ public class MyJsonTask{
                 public void onResponse(String responseString) {
                     MyLog.showLog(responseString);
                     if(!responseString.isEmpty()){
-                        MyToast.showToast(context, responseString);
-                        MyJsonTask.insertParsedJsonData(responseString);
+                        insertParsedJsonData(responseString);
                         progressDialog.dismiss();
                     }
                 }
@@ -49,6 +48,7 @@ public class MyJsonTask{
                 public void onErrorResponse(VolleyError volleyError) {
                     MyLog.showLog("onErrorResponse: "+volleyError.toString());
                     progressDialog.dismiss();
+                    MyToast.showToast(context , "onErrorResponse" );
                 }
             });
             requestQueue.add(stringRequest);
@@ -58,7 +58,7 @@ public class MyJsonTask{
     }
 
 
-    public static void insertParsedJsonData(String stringResponse){
+    private static void insertParsedJsonData(String stringResponse){
         try {
             JSONObject jsonObject = new JSONObject(stringResponse);
             JSONArray jsonArray = jsonObject.getJSONArray("results");
