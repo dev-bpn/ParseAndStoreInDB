@@ -1,5 +1,7 @@
 package parseandstoreindb.com.parseandstoreindb.operations;
 
+import java.util.Calendar;
+
 import parseandstoreindb.com.parseandstoreindb.log.MyLog;
 
 /**
@@ -62,5 +64,32 @@ public class Total {
         MyLog.showLog("");
 
         return result;
+    }
+
+    public static String getDay(){
+
+        String weekDay = "";
+
+        Calendar c = Calendar.getInstance();
+        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+
+        if (Calendar.TUESDAY == dayOfWeek) {
+            weekDay = "tuesday";
+        } else if (Calendar.WEDNESDAY == dayOfWeek) {
+            weekDay = "wednesday";
+        } else if (Calendar.THURSDAY == dayOfWeek) {
+            weekDay = "thursday";
+        } else if (Calendar.FRIDAY == dayOfWeek) {
+            weekDay = "friday";
+        } else if (Calendar.SATURDAY == dayOfWeek) {
+            weekDay = "saturday";
+        } else if (Calendar.MONDAY == dayOfWeek) {
+            weekDay = "monday";
+        } else if (Calendar.SUNDAY == dayOfWeek) {
+            weekDay = "sunday";
+        }
+
+            return weekDay;
+
     }
 }

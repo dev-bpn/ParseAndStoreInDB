@@ -68,9 +68,42 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse{
 
     public void totalTime(View view){
 
-        String str = group_1.get(0);
-        int totalTime = Total.getTotal(str);
+        if(Total.getDay().equals("sunday")) {
 
+            String str = group_1.get(0);
+            int totalTime = Total.getTotal(str);
+
+        }else if(Total.getDay().equals("monday") ){
+
+            String str = group_1.get(1);
+            int totalTime = Total.getTotal(str);
+
+        }else if(Total.getDay().equals("tuesday") ){
+
+            String str = group_1.get(2);
+            int totalTime = Total.getTotal(str);
+
+        }else if(Total.getDay().equals("wednesday") ){
+
+            String str = group_1.get(3);
+            int totalTime = Total.getTotal(str);
+
+        }else if(Total.getDay().equals("thursday") ){
+
+            String str = group_1.get(4);
+            int totalTime = Total.getTotal(str);
+
+        }else if(Total.getDay().equals("friday") ){
+
+            String str = group_1.get(5);
+            int totalTime = Total.getTotal(str);
+
+        }else if(Total.getDay().equals("saturday") ){
+
+            String str = group_1.get(6);
+            int totalTime = Total.getTotal(str);
+
+        }
     }
 
     @Override
@@ -106,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements MyArrayResponse{
         MyToast.showToast(this, group_1.toString());
 
         viewPager.getAdapter().notifyDataSetChanged();
+
 
     }
 
